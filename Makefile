@@ -1,12 +1,7 @@
 VERSION = 2
 LIBRARY_NAME = pam_touchid.so
 DESTINATION = /usr/local/lib/pam
-ARCH := $(shell uname -m)
-ifeq ($(ARCH), arm64)
-TARGET := arm64-apple-darwin20.1.0
-else
-TARGET := x86_64-apple-darwin20.1.0
-endif
+TARGET = "$(shell uname -m)-apple-macosx$(shell sw_vers -productVersion)"
 
 .PHONY: all
 
